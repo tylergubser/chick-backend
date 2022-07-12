@@ -19,4 +19,10 @@ class UsersController < ApplicationController
         user.destroy
         head :no_content
     end
+
+    private
+
+    def user_params
+        params.require(:user).permit(:username, :password_digest, :email)
+    end
 end
