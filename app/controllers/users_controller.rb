@@ -5,7 +5,12 @@ class UsersController < ApplicationController
     end
 
     def create
-        user = User.find(params[:id])
+        user = User.create(user_params)
         render json: user, status: :created
+    end
+
+    def show
+        user = User.find(params[:id])
+        render json: user
     end
 end
